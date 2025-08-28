@@ -1,35 +1,33 @@
 package Lec6_Array;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Ex7_RemoveDuplicateElements {
-    public static void main(String[] args){
+
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        System.out.print("Nhap so luong gia tri: ");
+        int n = scanner.nextInt();
         ArrayList<Integer> a = new ArrayList<>();
-        a.get(1);
-        a.get(3);
-        a.get(2);
-        a.get(1);
-        a.get(4);
-        a.get(3);
-        a.get(5);
-        ArrayList<Integer> b = new ArrayList<>();
-        for(int i=0;i<a.size()-1;i++){
-            for(int k=1;k<a.size();k++){
-                if(a.get(i) == a.get(k)){
-                    b.get(a.get(i));
+        for (int i = 0; i < n; i++) {
+            int i2 = i + 1;
+            System.out.print("Nhap gia tri thu " + i2 + ": ");
+            int b = scanner.nextInt();
+            a.add(b);
+        }
+        System.out.println(Arrays.toString(a.toArray()));
+        for (int i = 0; i < a.size(); i++) {
+            int a2 = a.get(i);
+            for (int k = i + 1; k < a.size(); k++) {
+                int a3 = a.get(k);
+                if (a2 == a3) {
+                    a.remove(k);
+                    
                 }
             }
         }
-        System.out.print("Before:");
-        for(int i=0;i<a.size();i++){
-            System.out.print(" " + a.get(i));
-        }
-        System.out.println();
-        System.out.print("After:");
-        for(int i=0;i<b.size();i++){
-            System.out.print(" " + b.get(i));
-        }
+        System.out.print(Arrays.toString(a.toArray()));
     }
 }
